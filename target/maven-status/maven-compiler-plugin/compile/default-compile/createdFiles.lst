@@ -1,0 +1,16 @@
+com/example/demo/configuration/RedisConfiguration.class
+com/example/demo/mongo/model/request/Product.class
+com/example/demo/SearchDb.class
+com/example/demo/mongo/service/MongoService.class
+com/example/demo/mongo/model/response/Output.class
+com/example/demo/configuration/ElasticConfiguration.class
+com/example/demo/AutoComplete.class
+com/example/demo/controller/Controller.class
+com/example/demo/mongo/service/MongoProductRepository.class
+com/example/demo/mongo/service/impl/MongoServiceImpl.class
+com/example/demo/mongo/model/response/Output$OutputBuilder.class
+com/example/demo/elastic/model/ElasticProduct.class
+com/example/demo/mongo/model/request/MongoProduct.class
+com/example/demo/elastic/service/impl/ElasticRepositoryImpl.class
+com/example/demo/constants/AppConstants.class
+com/example/demo/elastic/service/ElasticRepository.class

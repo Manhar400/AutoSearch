@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Auto Complete</title>
+    <link rel="stylesheet" href="https//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+<body>
+
+<h1>Auto Complete</h1>
+<div class=" ui-widget">
+    <input type="text" name="country" id="autocomplete" placeholder="Search"/>
+
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    $(function() {
+        $("#autocomplete").autocomplete({
+            delay: 100,
+            lookup:"http://localhost:8080",
+            source: function(request, response) {
+                var searchterm = request.term;
+                var songList = [];
+                final_url = "http://autosearchmongo-env.eba-ugrccurp.ap-south-1.elasticbeanstalk.com/search/autocomplete/"+searchterm;
+                $.ajax({
+                    url: final_url,
+                    method: "GET",
+                    headers: {
+                        "Access-Control-Allow-Origin":"*",
+                        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+                    },
+
+                    success: function(data) {
+                        $.each(data.suggestion, function(key, value) {
+
+                            songList.push(value);
+                        });
+
+                        response(songList);
+                    },
+                })
+            }
+        });
+    });
+</script>
